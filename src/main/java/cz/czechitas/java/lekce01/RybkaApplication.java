@@ -26,10 +26,31 @@ public class RybkaApplication extends CzechitasGameApplication {
         super.initGame();
     }
 
+    protected void circleAround() {
+
+        for (int i = 0; i <= 10; i = i + 1) {
+            rybka.plavatVpravo();
+        }
+        for (int i = 0; i <= 10; i = i + 1) {
+            rybka.plavatDolu();
+        }
+        for (int i = 0; i <= 10; i = i + 1) {
+            rybka.plavatVlevo();
+        }
+        for (int i = 0; i <= 10; i = i + 1) {
+            rybka.plavatNahoru();
+        }
+    }
+
     @Override
     protected void onStart() {
         kamen = new Kamen(200, 200);
         rybka = new Rybka(100, 100);
+
+        for (int i = 0; i <= 3; i = i + 1) {
+            this.circleAround();
+            System.out.println(i);
+        }
     }
 
     public static void main(String[] args) {
